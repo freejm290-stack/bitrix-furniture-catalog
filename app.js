@@ -85,11 +85,11 @@ function renderProducts(products){
         "products"
     );
 
-    container.innerHTML = "";
+    container.inner = "";
 
     products.forEach(product => {
 
-        container.innerHTML += `
+        container.inner += `
 
         <div
             class="card"
