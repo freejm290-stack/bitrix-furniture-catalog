@@ -160,3 +160,28 @@ body{
     margin-left: 260px;
     padding: 20px;
 }
+
+.category-list{
+    list-style:none;
+    padding:0;
+    margin-top:20px;
+}
+
+.category-list li{
+    padding:10px 12px;
+    cursor:pointer;
+    border-radius:6px;
+    margin-bottom:4px;
+    transition:0.2s;
+    font-size:14px;
+}
+
+.category-list li:hover{
+    background:#f0f4ff;
+    color:#2f54eb;
+}
+
+.category-list li.active{
+    background:#2f54eb;
+    color:white;
+}
