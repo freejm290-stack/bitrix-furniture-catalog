@@ -129,3 +129,20 @@ function filterCategory(category){
 console.log(category);
 
 }
+
+function searchProducts(){
+
+```
+const value =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+const filtered = products.filter(product =>
+    product.NAME.toLowerCase().includes(value)
+);
+
+renderProducts(filtered);
+```
+
+}
