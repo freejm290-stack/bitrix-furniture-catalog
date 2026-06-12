@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог мебели</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h2>Категории</h2>
+
+<ul>
+<li onclick="filterCategory('Прямые диваны')">Прямые диваны</li>
+<li onclick="filterCategory('Угловые диваны')">Угловые диваны</li>
+<li onclick="filterCategory('Кухонные диваны')">Кухонные диваны</li>
+<li onclick="filterCategory('Кресла')">Кресла</li>
+<li onclick="filterCategory('Кровати')">Кровати</li>
+</ul>
+
+</div>
+
+<div class="content">
+
+<input
+id="search"
+placeholder="Поиск товара..."
+onkeyup="searchProducts()">
+
+<div id="products" class="grid"></div>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
