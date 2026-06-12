@@ -1,182 +1,113 @@
-let allProducts = [];
+const products = [
 
-document
-.getElementById("search")
-.addEventListener("input", searchProducts);
+{
+name:"Перетяжка прямого дивана",
+category:"Диваны прямые",
+price:"24000",
+meters:"12",
+image:"https://picsum.photos/400/300?1"
+},
 
-if (
-    typeof BX24 !== "undefined"
-) {
+{
+name:"Кресло парикмахерское",
+category:"Кресла парикмахерские",
+price:"15000",
+meters:"5",
+image:"https://picsum.photos/400/300?2"
+},
 
-    BX24.init(function(){
-
-        loadProductsFromBitrix();
-
-    });
-
-} else {
-
-    loadDemoProducts();
-
+{
+name:"Кровать мягкая",
+category:"Кровати",
+price:"35000",
+meters:"8",
+image:"https://picsum.photos/400/300?3"
 }
 
-function loadDemoProducts(){
+];
 
-    allProducts = [
+const productsContainer =
+document.getElementById("products");
 
-        {
-            ID:1,
-            NAME:"Перетяжка прямого дивана №1",
-            PRICE:24000,
-            METERS:"12",
-            CATEGORY:"Диваны прямые",
-            PHOTO:"https://picsum.photos/400/300?1",
-            LINK:"#"
-        },
+function renderProducts(items){
 
-        {
-            ID:2,
-            NAME:"Кресло парикмахерское",
-            PRICE:15000,
-            METERS:"5",
-            CATEGORY:"Кресла парикмахерские",
-            PHOTO:"https://picsum.photos/400/300?2",
-            LINK:"#"
-        }
+```
+productsContainer.innerHTML = "";
 
-    ];
+items.forEach(product=>{
 
-    renderProducts(allProducts);
+    productsContainer.innerHTML += `
+    <div class="card"
+         data-category="${product.category}">
 
-}
+        <img src="${product.image}">
 
-function loadProductsFromBitrix(){
+        <div class="card-body">
 
-    BX24.callMethod(
-        "crm.product.list",
-        {},
-        function(result){
+            <h3>${product.name}</h3>
 
-            if(result.error()){
-
-                console.error(
-                    result.error()
-                );
-
-                return;
-            }
-
-            allProducts =
-                result.data();
-
-            renderProducts(
-                allProducts
-            );
-
-        }
-    );
-
-}
-
-function renderProducts(products){
-
-    const container =
-    document.getElementById(
-        "products"
-    );
-
-    container.inner = "";
-
-    products.forEach(product => {
-
-        container.inner += `
-
-        <div
-            class="card"
-            data-category="${product.CATEGORY || ''}"
-        >
-
-            <img
-                src="${
-                    product.PHOTO ||
-                    'https://via.placeholder.com/400x300'
-                }"
-            >
-
-            <div class="card-body">
-
-                <h3>
-                    ${product.NAME}
-                </h3>
-
-                <div class="price">
-                    ${product.PRICE || 0} ₽
-                </div>
-
-                <div class="meters">
-                    Необходимый метраж:
-                    ${product.METERS || '-'} м
-                </div>
-
-                <a
-                    class="crm-link"
-                    target="_blank"
-                    href="${
-                        product.LINK ||
-                        '#'
-                    }"
-                >
-                    Открыть в CRM
-                </a>
-
+            <div class="price">
+                ${product.price} ₽
             </div>
+
+            <div class="meters">
+                Необходимый метраж:
+                ${product.meters} м
+            </div>
+
+            <a href="#"
+               class="crm-link">
+               Открыть в CRM
+            </a>
 
         </div>
 
-        `;
+    </div>
+    `;
 
-    });
+});
+```
 
 }
 
 function filterCategory(category){
 
-    document
-    .querySelectorAll(".card")
-    .forEach(card=>{
+```
+if(category === "all"){
+    renderProducts(products);
+    return;
+}
 
-        if(
-            category==="all" ||
-            card.dataset.category===category
-        ){
-
-            card.style.display="block";
-
-        }else{
-
-            card.style.display="none";
-
-        }
-
-    });
+renderProducts(
+    products.filter(
+        p => p.category === category
+    )
+);
+```
 
 }
 
-function searchProducts(){
+document
+.getElementById("search")
+.addEventListener("input", function(){
 
-    const value =
-    document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+```
+const value =
+this.value.toLowerCase();
 
-    const filtered =
-    allProducts.filter(item =>
-        item.NAME
+renderProducts(
+
+    products.filter(product =>
+
+        product.name
         .toLowerCase()
         .includes(value)
-    );
 
-    renderProducts(filtered);
+    )
 
-}
+);
+```
+
+});
+
+renderProducts(products);
