@@ -1,6 +1,13 @@
 let products = [];
 
-if (typeof BX24 !== "undefined" && BX24) {
+window.addEventListener("DOMContentLoaded", () => {
+
+if (
+    typeof BX24 !== "undefined" &&
+    BX24 !== null
+) {
+
+    console.log("Bitrix24 подключен");
 
     BX24.init(function () {
 
@@ -10,7 +17,33 @@ if (typeof BX24 !== "undefined" && BX24) {
 
 } else {
 
-    console.log("BX24 не найден");
+    console.log("Режим тестирования");
+
+    loadDemoProducts();
+
+}
+
+});
+
+function loadDemoProducts() {
+
+products = [
+
+    {
+        ID: 1,
+        NAME: "Тестовый диван",
+        PRICE: 24000
+    },
+
+    {
+        ID: 2,
+        NAME: "Тестовое кресло",
+        PRICE: 15000
+    }
+
+];
+
+renderProducts(products);
 
 }
 
@@ -47,7 +80,6 @@ BX24.callMethod(
 
 function renderProducts(items) {
 
-```
 const container =
     document.getElementById("products");
 
