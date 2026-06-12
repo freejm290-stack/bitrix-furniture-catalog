@@ -1,21 +1,46 @@
-const products = [
+let products = [
 
-{
-name: "Диван прямой",
-category: "Диваны прямые",
-price: "24000",
-meters: "12",
-image: "https://picsum.photos/400/300?1"
-},
+ BX24.init(function(){
 
-{
-name: "Кресло парикмахерское",
-category: "Кресла парикмахерские",
-price: "15000",
-meters: "5",
-image: "https://picsum.photos/400/300?2"
+```
+loadProducts();
+```
+
+});
+
+function loadProducts(){
+
+```
+BX24.callMethod(
+    "crm.product.list",
+    {
+        select: [
+            "ID",
+            "NAME",
+            "PRICE"
+        ]
+    },
+    function(result){
+
+        if(result.error()){
+
+            console.error(result.error());
+
+            return;
+
+        }
+
+        products = result.data();
+
+        console.log(products);
+
+        renderProducts(products);
+
+    }
+);
+
 }
-
+   
 ];
 
 const productsContainer =
