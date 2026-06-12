@@ -86,7 +86,9 @@ const container =
 if (!container) return;
 
 container.innerHTML = "";
-
+    
+console.log("Рендер товаров:", items);
+    
 items.forEach(product => {
 
     container.innerHTML += `
