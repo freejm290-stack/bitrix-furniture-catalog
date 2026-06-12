@@ -69,3 +69,27 @@ margin-top:10px;
     grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
     gap:25px;
 }
+
+.card{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.price{
+    font-size:22px;
+    color:#2f54eb;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.meters{
+    margin-top:8px;
+    font-size:14px;
+}
