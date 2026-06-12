@@ -48,40 +48,52 @@ document.getElementById("products");
 
 function renderProducts(items){
 
+```
 productsContainer.innerHTML = "";
 
 items.forEach(product => {
 
     productsContainer.innerHTML += `
-        <div class="card" data-category="${product.category}">
 
-            <img src="${product.image}">
+    <div class="card">
 
-            <div class="card-body">
+        <img
+            src="https://via.placeholder.com/400x300"
+        >
 
-                <h3>${product.name}</h3>
+        <div class="card-body">
 
-                <div class="price">
-                    ${product.price} ₽
-                </div>
+            <h3>
+                ${product.NAME}
+            </h3>
 
-                <div class="meters">
-                    Необходимый метраж:
-                    ${product.meters} м
-                </div>
-
-                <a href="#" class="crm-link">
-                    Открыть в CRM
-                </a>
-
+            <div class="price">
+                ${product.PRICE || 0} ₽
             </div>
 
+            <div class="meters">
+                Необходимый метраж:
+                -
+            </div>
+
+            <a
+                href="/crm/catalog/24/product/${product.ID}/"
+                target="_blank"
+                class="crm-link"
+            >
+                Открыть в CRM
+            </a>
+
         </div>
+
+    </div>
+
     `;
 
 });
 
 }
+
 
 function filterCategory(category){
 
