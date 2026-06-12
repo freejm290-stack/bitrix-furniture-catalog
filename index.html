@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<aside class="sidebar">
 
-<title>Каталог мебели</title>
+<h2>Каталог</h2>
 
-<link rel="stylesheet" href="style.css">
+<ul class="category-list">
 
-<script src="//api.bitrix24.com/api/v1/"></script>
+<li onclick="filterCategory('all')">Все товары</li>
 
-</head>
-<body>
+<li onclick="filterCategory('Автомобильные сиденья')">Автомобильные сиденья</li>
+<li onclick="filterCategory('Бары и рестораны')">Бары и рестораны</li>
+<li onclick="filterCategory('Валики и ролики')">Валики и ролики</li>
+<li onclick="filterCategory('Диваны и кресла с кареткой')">Диваны и кресла с кареткой</li>
+<li onclick="filterCategory('Диваны кухонные')">Диваны кухонные</li>
+<li onclick="filterCategory('Диваны П-образные')">Диваны П-образные</li>
+<li onclick="filterCategory('Диваны прямые')">Диваны прямые</li>
+<li onclick="filterCategory('Диваны угловые')">Диваны угловые</li>
+<li onclick="filterCategory('Дома на колесах')">Дома на колесах</li>
+<li onclick="filterCategory('Изголовья кроватей')">Изголовья кроватей</li>
+<li onclick="filterCategory('Катера')">Катера</li>
+<li onclick="filterCategory('Кресла')">Кресла</li>
+<li onclick="filterCategory('Кресла парикмахерские')">Кресла парикмахерские</li>
+<li onclick="filterCategory('Кресло-качалка')">Кресло-качалка</li>
+<li onclick="filterCategory('Кровати')">Кровати</li>
+<li onclick="filterCategory('Локти')">Локти</li>
+<li onclick="filterCategory('Медицинская мебель')">Медицинская мебель</li>
+<li onclick="filterCategory('Морская мебель')">Морская мебель</li>
+<li onclick="filterCategory('Мягкая мебель сделанная Александром Викторовичем')">
+Мягкая мебель сделанная Александром Викторовичем
+</li>
+<li onclick="filterCategory('Мягкие элементы')">Мягкие элементы</li>
+<li onclick="filterCategory('Подушки от диванов')">Подушки от диванов</li>
+<li onclick="filterCategory('Прикроватные тумбы')">Прикроватные тумбы</li>
+<li onclick="filterCategory('Пуфики')">Пуфики</li>
+<li onclick="filterCategory('Реклайнеры')">Реклайнеры</li>
+<li onclick="filterCategory('Реставрация')">Реставрация</li>
+<li onclick="filterCategory('Сделанное нами')">Сделанное нами</li>
+<li onclick="filterCategory('Сидушки разное')">Сидушки разное</li>
+<li onclick="filterCategory('Сидушки снегоходов')">Сидушки снегоходов</li>
+<li onclick="filterCategory('Спинки диванов')">Спинки диванов</li>
+<li onclick="filterCategory('Столы')">Столы</li>
+<li onclick="filterCategory('Стулья домашние')">Стулья домашние</li>
+<li onclick="filterCategory('Стулья и кресла офисные')">Стулья и кресла офисные</li>
+<li onclick="filterCategory('Тахта')">Тахта</li>
+<li onclick="filterCategory('Тренажерное оборудование')">Тренажерное оборудование</li>
+<li onclick="filterCategory('Чехлы диванов и кресел')">Чехлы диванов и кресел</li>
 
-<div class="container">
+</ul>
 
-    <aside class="sidebar">
-
-        <h2>Каталог</h2>
-
-        <ul id="categoryList" class="category-list">
-            <li onclick="filterCategory('all')">Все товары</li>
-        </ul>
-
-    </aside>
-
-    <main class="content">
-
-        <input
-            id="search"
-            class="search"
-            placeholder="Поиск товара..."
-        >
-
-        <div id="products" class="products"></div>
-
-    </main>
-
-</div>
-
-<script src="app.js"></script>
-
-</body>
-</html>
+</aside>
