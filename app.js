@@ -1,12 +1,16 @@
 let products = [];
 
-if (typeof BX24 !== "undefined") {
+if (typeof BX24 !== "undefined" && BX24) {
 
-BX24.init(function () {
+    BX24.init(function () {
 
-    loadProducts();
+        loadProducts();
 
-});
+    });
+
+} else {
+
+    console.log("BX24 не найден");
 
 }
 
