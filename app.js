@@ -1,4 +1,4 @@
-let products = [
+let products = [];
 
  BX24.init(function(){
 
@@ -38,8 +38,6 @@ BX24.callMethod(
 
 }
    
-];
-
 const productsContainer =
 document.getElementById("products");
 
