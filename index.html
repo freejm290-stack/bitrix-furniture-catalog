@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Каталог мебели</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="container">
 
-```
-<aside class="sidebar">
+<div class="sidebar">
+<h2>Категории</h2>
 
-    <h2>Каталог</h2>
+<ul class="category-list">
 
-    <ul class="category-list">
-
-        <li onclick="filterCategory('all')">Все товары</li>
-        <li onclick="filterCategory('Автомобильные сиденья')">Автомобильные сиденья</li>
+<li onclick="filterCategory('all')">Все товары</li>
+<li onclick="filterCategory('Автомобильные сиденья')">Автомобильные сиденья</li>
 <li onclick="filterCategory('Бары и рестораны')">Бары и рестораны</li>
 <li onclick="filterCategory('Валики и ролики')">Валики и ролики</li>
 <li onclick="filterCategory('Диваны и кресла с кареткой')">Диваны и кресла с кареткой</li>
@@ -58,24 +52,21 @@
 <li onclick="filterCategory('Тахта')">Тахта</li>
 <li onclick="filterCategory('Тренажерное оборудование')">Тренажерное оборудование</li>
 <li onclick="filterCategory('Чехлы диванов и кресел')">Чехлы диванов и кресел</li>
+    
+</ul>
 
-    </ul>
+</div>
 
-</aside>
+<div class="content">
 
-<main class="content">
+<input
+id="search"
+placeholder="Поиск товара..."
+onkeyup="searchProducts()">
 
-    <input
-        type="text"
-        id="search"
-        class="search"
-        placeholder="Поиск товара..."
-    >
+<div id="products" class="grid"></div>
 
-    <div id="products" class="products"></div>
-
-</main>
-```
+</div>
 
 </div>
 
