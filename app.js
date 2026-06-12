@@ -93,7 +93,7 @@ items.forEach(product => {
 
     <div class="card">
 
-        <img src="https://via.placeholder.com/400x300">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600">
 
         <div class="card-body">
 
@@ -132,7 +132,6 @@ console.log(category);
 
 function searchProducts(){
 
-```
 const value =
     document.getElementById("search")
     .value
@@ -143,6 +142,7 @@ const filtered = products.filter(product =>
 );
 
 renderProducts(filtered);
-```
+
+console.log("Товаров:", products.length);
 
 }
