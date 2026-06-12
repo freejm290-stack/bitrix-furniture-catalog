@@ -2,15 +2,12 @@ let products = [
 
  BX24.init(function(){
 
-```
 loadProducts();
-```
 
 });
 
 function loadProducts(){
 
-```
 BX24.callMethod(
     "crm.product.list",
     {
@@ -48,7 +45,6 @@ document.getElementById("products");
 
 function renderProducts(items){
 
-```
 productsContainer.innerHTML = "";
 
 items.forEach(product => {
