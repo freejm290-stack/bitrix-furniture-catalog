@@ -1,7 +1,7 @@
 const products = [
 
 {
-name:"Перетяжка прямого дивана",
+name:"Диван прямой",
 category:"Диваны прямые",
 price:"24000",
 meters:"12",
@@ -14,100 +14,42 @@ category:"Кресла парикмахерские",
 price:"15000",
 meters:"5",
 image:"https://picsum.photos/400/300?2"
-},
-
-{
-name:"Кровать мягкая",
-category:"Кровати",
-price:"35000",
-meters:"8",
-image:"https://picsum.photos/400/300?3"
 }
 
 ];
 
-const productsContainer =
+const container =
 document.getElementById("products");
 
-function renderProducts(items){
+products.forEach(product => {
 
 ```
-productsContainer.innerHTML = "";
+container.innerHTML += `
+<div class="card">
 
-items.forEach(product=>{
+    <img src="${product.image}">
 
-    productsContainer.innerHTML += `
-    <div class="card"
-         data-category="${product.category}">
+    <div class="card-body">
 
-        <img src="${product.image}">
+        <h3>${product.name}</h3>
 
-        <div class="card-body">
-
-            <h3>${product.name}</h3>
-
-            <div class="price">
-                ${product.price} ₽
-            </div>
-
-            <div class="meters">
-                Необходимый метраж:
-                ${product.meters} м
-            </div>
-
-            <a href="#"
-               class="crm-link">
-               Открыть в CRM
-            </a>
-
+        <div class="price">
+            ${product.price} ₽
         </div>
 
+        <div class="meters">
+            Необходимый метраж:
+            ${product.meters} м
+        </div>
+
+        <a href="#" class="crm-link">
+            Открыть в CRM
+        </a>
+
     </div>
-    `;
 
-});
-```
-
-}
-
-function filterCategory(category){
-
-```
-if(category === "all"){
-    renderProducts(products);
-    return;
-}
-
-renderProducts(
-    products.filter(
-        p => p.category === category
-    )
-);
-```
-
-}
-
-document
-.getElementById("search")
-.addEventListener("input", function(){
-
-```
-const value =
-this.value.toLowerCase();
-
-renderProducts(
-
-    products.filter(product =>
-
-        product.name
-        .toLowerCase()
-        .includes(value)
-
-    )
-
-);
+</div>
+`;
 ```
 
 });
-
-renderProducts(products);
