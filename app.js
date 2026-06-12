@@ -23,7 +23,6 @@ document.getElementById("products");
 
 function renderProducts(items){
 
-```
 productsContainer.innerHTML = "";
 
 items.forEach(product => {
@@ -56,13 +55,11 @@ items.forEach(product => {
     `;
 
 });
-```
 
 }
 
 function filterCategory(category){
 
-```
 if(category === "all"){
     renderProducts(products);
     return;
@@ -74,7 +71,6 @@ products.filter(item =>
 );
 
 renderProducts(filtered);
-```
 
 }
 
@@ -82,7 +78,6 @@ document
 .getElementById("search")
 .addEventListener("input", function(){
 
-```
 const value =
 this.value.toLowerCase();
 
@@ -94,7 +89,6 @@ products.filter(item =>
 );
 
 renderProducts(filtered);
-```
 
 });
 
