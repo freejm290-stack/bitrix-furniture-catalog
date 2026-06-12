@@ -1,12 +1,16 @@
 let products = [];
 
- BX24.init(function(){
+if (typeof BX24 !== "undefined") {
 
-loadProducts();
+BX24.init(function () {
+
+    loadProducts();
 
 });
 
-function loadProducts(){
+}
+
+function loadProducts() {
 
 BX24.callMethod(
     "crm.product.list",
@@ -17,12 +21,11 @@ BX24.callMethod(
             "PRICE"
         ]
     },
-    function(result){
+    function(result) {
 
-        if(result.error()){
+        if (result.error()) {
 
             console.error(result.error());
-
             return;
 
         }
@@ -37,42 +40,39 @@ BX24.callMethod(
 );
 
 }
-   
-const productsContainer =
-document.getElementById("products");
 
-function renderProducts(items){
+function renderProducts(items) {
 
-productsContainer.innerHTML = "";
+```
+const container =
+    document.getElementById("products");
+
+if (!container) return;
+
+container.innerHTML = "";
 
 items.forEach(product => {
 
-    productsContainer.innerHTML += `
+    container.innerHTML += `
 
     <div class="card">
 
-        <img
-            src="https://via.placeholder.com/400x300"
-        >
+        <img src="https://via.placeholder.com/400x300">
 
         <div class="card-body">
 
-            <h3>
-                ${product.NAME}
-            </h3>
+            <h3>${product.NAME}</h3>
 
             <div class="price">
                 ${product.PRICE || 0} ₽
             </div>
 
             <div class="meters">
-                Необходимый метраж:
-                -
+                Необходимый метраж: -
             </div>
 
             <a
-                href="/crm/catalog/24/product/${product.ID}/"
-                target="_blank"
+                href="#"
                 class="crm-link"
             >
                 Открыть в CRM
@@ -88,39 +88,8 @@ items.forEach(product => {
 
 }
 
-
 function filterCategory(category){
 
-if(category === "all"){
-    renderProducts(products);
-    return;
-}
-
-const filtered =
-products.filter(item =>
-    item.category === category
-);
-
-renderProducts(filtered);
+console.log(category);
 
 }
-
-document
-.getElementById("search")
-.addEventListener("input", function(){
-
-const value =
-this.value.toLowerCase();
-
-const filtered =
-products.filter(item =>
-    item.name
-    .toLowerCase()
-    .includes(value)
-);
-
-renderProducts(filtered);
-
-});
-
-renderProducts(products);
