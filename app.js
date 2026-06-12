@@ -5,7 +5,7 @@ name: "Диван прямой",
 category: "Диваны прямые",
 price: "24000",
 meters: "12",
-image: "https://picsum.photos/400/300?1"
+image: "https://picsum.photos/400/400?1"
 },
 
 {
@@ -13,7 +13,7 @@ name: "Кресло парикмахерское",
 category: "Кресла парикмахерские",
 price: "15000",
 meters: "5",
-image: "https://picsum.photos/400/300?2"
+image: "https://picsum.photos/400/400?2"
 }
 
 ];
