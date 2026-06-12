@@ -71,7 +71,7 @@ body{
 
 .card img{
     width:100%;
-    height:220px;
+    height:280px;
     object-fit:cover;
 }
 
@@ -108,4 +108,28 @@ body{
 
 .crm-link:hover{
     opacity:0.9;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.price{
+    font-size:22px;
+    color:#2f54eb;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.meters{
+    margin-top:8px;
+    font-size:14px;
 }
