@@ -86,3 +86,77 @@ function renderProducts(products){
     });
 
 }
+
+BX24.init(function () {
+
+    loadSections();
+    loadProducts();
+
+});
+
+function loadSections() {
+
+    BX24.callMethod(
+        "crm.productsection.list",
+        {
+            order: { NAME: "ASC" }
+        },
+        function(result) {
+
+            if(result.error()) {
+                console.error(result.error());
+                return;
+            }
+
+            renderSections(result.data());
+
+        }
+    );
+
+}
+
+function renderSections(sections){
+
+    const list =
+        document.getElementById("categoryList");
+
+    list.innerHTML = `
+        <li onclick="filterCategory('all')">
+            Все товары
+        </li>
+    `;
+
+    sections.forEach(section => {
+
+        list.innerHTML += `
+            <li onclick="filterCategory('${section.ID}')">
+                ${section.NAME}
+            </li>
+        `;
+
+    });
+
+}
+
+function filterCategory(sectionId){
+
+    document
+        .querySelectorAll(".card")
+        .forEach(card => {
+
+            if(
+                sectionId === 'all' ||
+                card.dataset.section === sectionId
+            ){
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+}
+
+<div
+  class="card"
+  data-section="${product.SECTION_ID}">
