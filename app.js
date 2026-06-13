@@ -49,6 +49,13 @@ async function loadProducts() {
 
 products = data.result || [];
 
+document.body.innerHTML =
+"<pre>" +
+JSON.stringify(products[0], null, 2) +
+"</pre>";
+
+return;
+        
 console.table(products);
         
         console.log("Первый товар:");
