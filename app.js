@@ -118,20 +118,20 @@ function renderProducts(items) {
 
 }
 
-function filterCategory(category){
+function filterCategory(sectionId){
 
-if(category === "all"){
+    if(sectionId === "all"){
 
-    renderProducts(products);
-    return;
+        renderProducts(products);
+        return;
 
-}
+    }
 
-const filtered = products.filter(product =>
-    product.CATEGORY === category
-);
+    const filtered = products.filter(product =>
+        product.SECTION_ID == sectionId
+    );
 
-renderProducts(filtered);
+    renderProducts(filtered);
 
 }
 
