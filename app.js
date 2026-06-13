@@ -118,9 +118,9 @@ function renderProducts(items) {
 
 }
 
-function filterCategory(sectionId){
+function filterCategory(category){
 
-    if(sectionId === "all"){
+    if(category === "all"){
 
         renderProducts(products);
         return;
@@ -128,7 +128,7 @@ function filterCategory(sectionId){
     }
 
     const filtered = products.filter(product =>
-        product.SECTION_ID == sectionId
+        product.CATEGORY === category
     );
 
     renderProducts(filtered);
