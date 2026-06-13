@@ -9,8 +9,6 @@ if (
     BX24 !== null
 ) {
 
-    console.log("Bitrix24 подключен");
-
     BX24.init(function () {
 
     loadSections();
@@ -19,8 +17,6 @@ if (
 });
     
 } else {
-
-    console.log("Режим тестирования");
 
     loadDemoProducts();
 
