@@ -49,6 +49,9 @@ async function loadProducts() {
 
 products = data.result || [];
 
+        console.log("Первый товар:");
+console.log(products[0]);
+        
        alert(JSON.stringify(products[0]));
         
 products.forEach(product => {
