@@ -4,11 +4,15 @@ let currentCategory = "all";
 
 window.addEventListener("DOMContentLoaded", () => {
 
+    console.log("Старт приложения");
+    
 if (
     typeof BX24 !== "undefined" &&
     BX24 !== null
 ) {
 
+console.log("BX24 найден");
+    
     BX24.init(function () {
 
     loadSections();
@@ -18,6 +22,8 @@ if (
     
 } else {
 
+console.log("BX24 НЕ найден");
+    
     loadDemoProducts();
 
 }
