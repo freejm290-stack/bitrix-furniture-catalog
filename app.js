@@ -1,3 +1,5 @@
+alert("APP JS LOADED");
+
 let products = [];
 
 const WEBHOOK =
