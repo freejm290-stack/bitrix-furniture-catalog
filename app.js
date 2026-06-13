@@ -38,8 +38,6 @@ renderProducts(products);
 
 async function loadProducts() {
 
-    
-    
     try {
 
         const response = await fetch(
@@ -48,8 +46,36 @@ async function loadProducts() {
 
         const data = await response.json();
 
-console.log("Разделы Битрикс:");
+        products = data.result || [];
 
+        console.table(products);
+
+        renderProducts(products);
+
+    } catch(error) {
+
+        console.error(
+            "Ошибка загрузки товаров:",
+            error
+        );
+
+        loadDemoProducts();
+
+    }
+
+}
+
+ async function loadSections() {
+
+    try {
+
+        const response = await fetch(
+            WEBHOOK + "crm.productsection.list.json"
+        );
+
+        const data = await response.json();
+
+        console.log("Разделы Битрикс:");
         console.table(data.result);
 
     } catch(error) {
@@ -62,31 +88,6 @@ console.log("Разделы Битрикс:");
     }
 
 }
-/*
- function loadSections() {
-
-    BX24.callMethod(
-        "crm.productsection.list",
-        {},
-        function(result) {
-
-            if(result.error()) {
-
-                console.error(result.error());
-                return;
-
-            }
-
-            console.log(
-                "Разделы Битрикс:",
-                result.data()
-            );
-
-        }
-    );
-
-}
-*/
 
 function renderProducts(items) {
 
