@@ -50,6 +50,29 @@ renderProducts(products);
 
 function loadProducts() {
 
+    function loadSections() {
+
+    BX24.callMethod(
+        "crm.productsection.list",
+        {},
+        function(result) {
+
+            if(result.error()) {
+
+                console.error(result.error());
+                return;
+
+            }
+
+            console.log(
+                "Разделы Битрикс:",
+                result.data()
+            );
+
+        }
+    );
+
+}
     BX24.callMethod(
         "crm.product.list",
         {
@@ -119,6 +142,23 @@ function renderProducts(items) {
 }
 
 function filterCategory(category){
+
+    function filterCategory(category){
+
+    if(category === "all"){
+
+        renderProducts(products);
+        return;
+
+    }
+
+    const filtered = products.filter(product =>
+        product.CATEGORY === category
+    );
+
+    renderProducts(filtered);
+
+}
 
     if(category === "all"){
 
