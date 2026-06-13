@@ -93,7 +93,9 @@ items.forEach(product => {
 
     container.innerHTML += `
 
-    <div class="card">
+    <div class="card"
+    data-category="${product.CATEGORY || ''}"
+>
 
         <img src="https://picsum.photos/400/300?random=${product.ID}">
 
