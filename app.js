@@ -49,6 +49,8 @@ async function loadProducts() {
 
 products = data.result || [];
 
+console.table(products);
+        
         console.log("Первый товар:");
 console.log(products[0]);
         
