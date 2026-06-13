@@ -61,7 +61,7 @@ console.log("loadProducts START");
             error
         );
 
-        loadDemoProducts();
+        loadProducts();
 
     }
 
