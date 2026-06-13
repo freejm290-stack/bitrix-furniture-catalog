@@ -28,19 +28,18 @@ if (
 function loadDemoProducts() {
 
 products = [
-
-    {
-        ID: 1,
-        NAME: "Тестовый диван",
-        PRICE: 24000
-    },
-
-    {
-        ID: 2,
-        NAME: "Тестовое кресло",
-        PRICE: 15000
-    }
-
+{
+    ID: 1,
+    NAME: "Тестовый диван",
+    PRICE: 24000,
+    CATEGORY: "Диваны прямые"
+},
+{
+    ID: 2,
+    NAME: "Тестовое кресло",
+    PRICE: 15000,
+    CATEGORY: "Кресла парикмахерские"
+}
 ];
 
 renderProducts(products);
