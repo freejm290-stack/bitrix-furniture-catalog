@@ -46,7 +46,6 @@ async function loadProducts() {
         const data = await response.json();
 
         console.log(data.result);
-        );
 
         products = data.result || [];
 
@@ -65,6 +64,7 @@ async function loadProducts() {
 
 }
 
+/*
  function loadSections() {
 
     BX24.callMethod(
@@ -88,6 +88,7 @@ async function loadProducts() {
     );
 
 }
+*/
 
 function renderProducts(items) {
 
