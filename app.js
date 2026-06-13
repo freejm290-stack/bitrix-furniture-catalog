@@ -49,6 +49,8 @@ async function loadProducts() {
 
 products = data.result || [];
 
+       alert(JSON.stringify(products[0]));
+        
 products.forEach(product => {
     console.log(
         product.NAME,
