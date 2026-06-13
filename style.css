@@ -120,3 +120,59 @@ margin-top:10px;
     border-radius:6px;
     margin-top:10px;
 }
+
+.content{
+    flex:1;
+    padding:20px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.card h3{
+    margin:0 0 10px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:700;
+    color:#2f54eb;
+    text-align:center;
+}
+
+.meters{
+    margin-top:10px;
+    text-align:center;
+}
+
+.crm-link{
+    display:block;
+    margin-top:15px;
+    padding:10px;
+    background:#2f54eb;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    border-radius:6px;
+}
