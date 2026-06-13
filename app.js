@@ -37,12 +37,7 @@ renderProducts(products);
 
 async function loadProducts() {
 
-    products.forEach(product => {
-    console.log(
-        product.NAME,
-        product.SECTION_ID
-    );
-});
+    
     
     try {
 
@@ -52,9 +47,16 @@ async function loadProducts() {
 
         const data = await response.json();
 
-        console.log(data.result);
+products = data.result || [];
 
-        products = data.result || [];
+products.forEach(product => {
+    console.log(
+        product.NAME,
+        product.SECTION_ID
+    );
+});
+
+renderProducts(products);
 
         renderProducts(products);
 
