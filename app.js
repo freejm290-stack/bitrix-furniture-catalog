@@ -38,6 +38,8 @@ renderProducts(products);
 
 async function loadProducts() {
 
+console.log("loadProducts START");
+    
     try {
 
         const response = await fetch(
@@ -67,23 +69,23 @@ async function loadProducts() {
 
  async function loadSections() {
 
+    console.log("loadSections START");
+
     try {
 
         const response = await fetch(
             WEBHOOK + "crm.productsection.list.json"
         );
 
+        console.log("response:", response);
+
         const data = await response.json();
 
-        console.log("Разделы Битрикс:");
-        console.table(data.result);
+        console.log("data:", data);
 
     } catch(error) {
 
-        console.error(
-            "Ошибка загрузки разделов:",
-            error
-        );
+        console.error(error);
 
     }
 
