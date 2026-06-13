@@ -69,19 +69,15 @@ console.log("loadProducts START");
 
  async function loadSections() {
 
-    console.log("loadSections START");
-
     try {
 
         const response = await fetch(
             WEBHOOK + "crm.productsection.list.json"
         );
 
-        console.log("response:", response);
+        const text = await response.text();
 
-        const data = await response.json();
-
-        console.log("data:", data);
+        console.log(text);
 
     } catch(error) {
 
