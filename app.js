@@ -1,5 +1,7 @@
 let products = [];
 
+let currentCategory = "all";
+
 window.addEventListener("DOMContentLoaded", () => {
 
 if (
@@ -129,9 +131,21 @@ items.forEach(product => {
 
 function filterCategory(category){
 
-console.log(category);
+if(category === "all"){
+
+    renderProducts(products);
+    return;
 
 }
+
+const filtered = products.filter(product =>
+    product.CATEGORY === category
+);
+
+renderProducts(filtered);
+
+}
+
 
 function searchProducts(){
 
