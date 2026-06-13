@@ -61,8 +61,6 @@ products.forEach(product => {
     );
 });
 
-renderProducts(products);
-
         renderProducts(products);
 
     } catch(error) {
