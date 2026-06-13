@@ -45,9 +45,7 @@ async function loadProducts() {
 
         const data = await response.json();
 
-        console.log(
-            "Товары Битрикс:",
-            data
+        console.log(data.result);
         );
 
         products = data.result || [];
