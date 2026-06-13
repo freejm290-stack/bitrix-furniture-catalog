@@ -37,6 +37,13 @@ renderProducts(products);
 
 async function loadProducts() {
 
+    products.forEach(product => {
+    console.log(
+        product.NAME,
+        product.SECTION_ID
+    );
+});
+    
     try {
 
         const response = await fetch(
