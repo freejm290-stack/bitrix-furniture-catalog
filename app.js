@@ -50,82 +50,71 @@ renderProducts(products);
 
 function loadProducts() {
 
-BX24.callMethod(
-    "crm.product.list",
-    {
-        select: [
-            "ID",
-            "NAME",
-            "PRICE"
-        ]
-    },
-    function(result) {
+    BX24.callMethod(
+        "crm.product.list",
+        {
+            select: [
+                "ID",
+                "NAME",
+                "PRICE",
+                "SECTION_ID"
+            ]
+        },
+        function(result) {
 
-        if (result.error()) {
+            if(result.error()) {
+                console.error(result.error());
+                return;
+            }
 
-            console.error(result.error());
-            return;
+            products = result.data();
+
+            console.log("Товары Битрикс:", products);
+
+            renderProducts(products);
 
         }
-
-        products = result.data();
-
-        console.log(products);
-
-        renderProducts(products);
-
-    }
-);
+    );
 
 }
 
 function renderProducts(items) {
 
-const container =
-    document.getElementById("products");
+    const container =
+        document.getElementById("products");
 
-if (!container) return;
+    container.innerHTML = "";
 
-container.innerHTML = "";
-    
-console.log("Рендер товаров:", items);
-    
-items.forEach(product => {
+    items.forEach(product => {
 
-    container.innerHTML += `
+        container.innerHTML += `
 
-    <div class="card"
-    data-category="${product.CATEGORY || ''}"
->
+        <div
+            class="card"
+            data-section="${product.SECTION_ID || ''}"
+        >
 
-        <img src="https://picsum.photos/400/300?random=${product.ID}">
+            <img src="https://picsum.photos/400/300?random=${product.ID}">
 
-        <div class="card-body">
+            <div class="card-body">
 
-            <h3>${product.NAME}</h3>
+                <h3>${product.NAME}</h3>
 
-            <div class="price">
-                ${product.PRICE || 0} ₽
+                <div class="price">
+                    ${product.PRICE || 0} ₽
+                </div>
+
+                <div class="meters">
+                    ID товара: ${product.ID}
+                </div>
+
             </div>
-
-            <div class="meters">
-                Необходимый метраж: -
-            </div>
-
-            <a
-                href="#"
-                class="crm-link"
-            >
-                Открыть в CRM
-            </a>
 
         </div>
 
-    </div>
+        `;
 
-    `;
-
-});
+    });
 
 }
 
