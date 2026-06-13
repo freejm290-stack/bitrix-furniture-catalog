@@ -145,9 +145,7 @@ function renderProducts(items) {
 
 function filterCategory(category){
 
-    function filterCategory(category){
-
-    if(category === "all"){
+        if(category === "all"){
 
         renderProducts(products);
         return;
@@ -161,22 +159,6 @@ function filterCategory(category){
     renderProducts(filtered);
 
 }
-
-    if(category === "all"){
-
-        renderProducts(products);
-        return;
-
-    }
-
-    const filtered = products.filter(product =>
-        product.CATEGORY === category
-    );
-
-    renderProducts(filtered);
-
-}
-
 
 function searchProducts(){
 
