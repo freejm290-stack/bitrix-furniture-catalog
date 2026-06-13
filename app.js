@@ -9,6 +9,7 @@ window.addEventListener(
     "DOMContentLoaded",
     () => {
 
+        loadSections();
         loadProducts();
 
     }
@@ -47,44 +48,20 @@ async function loadProducts() {
 
         const data = await response.json();
 
-products = data.result || [];
+console.log("Разделы Битрикс:");
 
-document.body.innerHTML =
-"<pre>" +
-JSON.stringify(products[0], null, 2) +
-"</pre>";
-
-return;
-        
-console.table(products);
-        
-        console.log("Первый товар:");
-console.log(products[0]);
-        
-       alert(JSON.stringify(products[0]));
-        
-products.forEach(product => {
-    console.log(
-        product.NAME,
-        product.SECTION_ID
-    );
-});
-
-        renderProducts(products);
+        console.table(data.result);
 
     } catch(error) {
 
         console.error(
-            "Ошибка загрузки:",
+            "Ошибка загрузки разделов:",
             error
         );
-
-        loadDemoProducts();
 
     }
 
 }
-
 /*
  function loadSections() {
 
