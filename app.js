@@ -13,10 +13,11 @@ if (
 
     BX24.init(function () {
 
-        loadProducts();
+    loadSections();
+    loadProducts();
 
-    });
-
+});
+    
 } else {
 
     console.log("Режим тестирования");
