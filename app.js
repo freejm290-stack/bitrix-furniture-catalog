@@ -1,34 +1,18 @@
 let products = [];
 
+const WEBHOOK =
+"https://b24-voge55.bitrix24.ru/rest/1/wy5kogomjt3eu8tq/";
+
 let currentCategory = "all";
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    console.log("Старт приложения");
-    
-if (
-    typeof BX24 !== "undefined" &&
-    BX24 !== null
-) {
+        loadProducts();
 
-console.log("BX24 найден");
-    
-    BX24.init(function () {
-
-    loadSections();
-    loadProducts();
-
-});
-    
-} else {
-
-console.log("BX24 НЕ найден");
-    
-    loadDemoProducts();
-
-}
-
-});
+    }
+);
 
 function loadDemoProducts() {
 
@@ -51,33 +35,35 @@ renderProducts(products);
 
 }
 
-function loadProducts() {
+async function loadProducts() {
 
-       BX24.callMethod(
-        "crm.product.list",
-        {
-            select: [
-                "ID",
-                "NAME",
-                "PRICE",
-                "SECTION_ID"
-            ]
-        },
-        function(result) {
+    try {
 
-            if(result.error()) {
-                console.error(result.error());
-                return;
-            }
+        const response = await fetch(
+            WEBHOOK + "crm.product.list.json"
+        );
 
-            products = result.data();
+        const data = await response.json();
 
-            console.log("Товары Битрикс:", products);
+        console.log(
+            "Товары Битрикс:",
+            data
+        );
 
-            renderProducts(products);
+        products = data.result || [];
 
-        }
-    );
+        renderProducts(products);
+
+    } catch(error) {
+
+        console.error(
+            "Ошибка загрузки:",
+            error
+        );
+
+        loadDemoProducts();
+
+    }
 
 }
 
