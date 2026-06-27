@@ -74,7 +74,7 @@ console.log("loadProducts START");
     try {
 
         const response = await fetch(
-            WEBHOOK + "crm.productsection.list.json"
+            WEBHOOK + "crm.product.list.json?select[]=ID&select[]=NAME&select[]=PRICE&select[]=PREVIEW_PICTURE&select[]=DETAIL_PICTURE"
         );
 
         const text = await response.text();
