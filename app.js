@@ -119,6 +119,14 @@ function renderProducts(items) {
                     ID товара: ${product.ID}
                 </div>
 
+<a
+        href="${WEBHOOK.replace('/rest/1/wy5kogomjt3eu8tq/','')}/crm/product/details/${product.ID}/"
+        target="_blank"
+        class="crm-link"
+    >
+        Открыть в CRM
+    </a>
+    
             </div>
 
         </div>
