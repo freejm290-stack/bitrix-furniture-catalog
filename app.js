@@ -110,21 +110,18 @@ function renderProducts(items) {
 
     items.forEach(product => {
 
+ const image =
+        product.PROPERTY_44 &&
+        product.PROPERTY_44.length > 0
+            ? "https://b24-voge55.bitrix24.ru" +
+              product.PROPERTY_44[0].value.downloadUrl
+            : "images/no-photo.png";
+        
         container.innerHTML += `
 
-        <div
-            class="card"
-            data-section="${product.SECTION_ID || ''}"
-        >
+        <div class="card" data-section="${product.SECTION_ID || ''}">
 
-            const image = 
-            product.PROPERTY_44 &&
-              product.PROPERTY_44.length > 0
-    ? "https://b24-voge55.bitrix24.ru" +
-      product.PROPERTY_44[0].value.downloadUrl
-    : "images/no-photo.png";
-
-  <img src="${image}" alt="${product.NAME}">  
+            <img src="${image}" alt="${product.NAME}">  
 
             <div class="card-body">
 
@@ -139,7 +136,7 @@ function renderProducts(items) {
                 </div>
 
 <a
-        href="${WEBHOOK.replace('/rest/1/wy5kogomjt3eu8tq/','')}/crm/product/details/${product.ID}/"
+        href="https://b24-voge55.bitrix24.ru/crm/product/details/${product.ID}/"
         target="_blank"
         class="crm-link"
     >
