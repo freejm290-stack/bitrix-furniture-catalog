@@ -110,11 +110,10 @@ function renderProducts(items) {
     items.forEach(product => {
 
  const image =
-        product.PROPERTY_44 &&
-        product.PROPERTY_44.length > 0
-            ? "https://b24-voge55.bitrix24.ru" +
-              product.PROPERTY_44[0].value.downloadUrl
-            : "images/no-photo.png";
+    product.PROPERTY_44 &&
+    product.PROPERTY_44.length > 0
+        ? "https://bitrix-furniture-catallog.onrender.com/photo/" + product.ID
+        : "images/no-photo.png";
         
         container.innerHTML += `
 
