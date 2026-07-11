@@ -29,10 +29,16 @@ app.get("/photo/:productId", async (req, res) => {
             "https://b24-voge55.bitrix24.ru" +
             product.PROPERTY_44[0].value.downloadUrl;
 
+        console.log(photo);
+
         const image = await axios.get(photo, {
             responseType: "stream"
         });
 
+        const test = await axios.get(photo);
+
+console.log(test.request.res.responseUrl);
+        
         res.setHeader(
             "Content-Type",
             image.headers["content-type"]
