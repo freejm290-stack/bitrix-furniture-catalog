@@ -10,7 +10,7 @@ let currentCategory = "all";
 window.addEventListener(
     "DOMContentLoaded",
     () => {
-
+        
         loadSections();
         loadProducts();
 
