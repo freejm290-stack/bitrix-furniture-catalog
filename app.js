@@ -50,11 +50,23 @@ console.log("loadProducts START");
 
         const data = await response.json();
 
-        products = data.result || [];
+        products = [];
 
-        console.table(products);
+for (const item of data.result) {
 
-        renderProducts(products);
+    const response2 = await fetch(
+        WEBHOOK +
+        "crm.product.get.json?id=" +
+        item.ID
+    );
+
+    const full = await response2.json();
+
+    products.push(full.result);
+
+}
+
+renderProducts(products);
 
     } catch(error) {
 
